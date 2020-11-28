@@ -1,6 +1,7 @@
 import { moduleFor, RenderingTestCase, runTask } from 'internal-test-helpers';
 import { isChrome, isFirefox } from '@ember/-internals/browser-environment';
 import { HAS_NATIVE_PROXY } from '@ember/-internals/utils';
+import { getInternalModifierManager } from '@glimmer/manager';
 
 import { Component } from '../../utils/helpers';
 
@@ -17,7 +18,10 @@ moduleFor(
     getOnManagerInstance() {
       // leveraging private APIs, this can be deleted if these APIs change
       // but it has been useful to verify some internal details
-      return this.renderer._runtimeResolver.builtInModifiers.on.manager;
+      return getInternalModifierManager(
+        this.owner,
+        this.renderer._runtimeResolver.builtInModifiers.on
+      );
     }
 
     assertCounts(expected) {
@@ -388,7 +392,10 @@ moduleFor(
     getOnManagerInstance() {
       // leveraging private APIs, this can be deleted if these APIs change
       // but it has been useful to verify some internal details
-      return this.renderer._runtimeResolver.builtInModifiers.on.manager;
+      return getInternalModifierManager(
+        this.owner,
+        this.renderer._runtimeResolver.builtInModifiers.on
+      );
     }
 
     assertCounts(expected) {

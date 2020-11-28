@@ -361,7 +361,6 @@
 */
 
 export { templateFactory as template, templateCacheCounters } from '@glimmer/opcode-compiler';
-export { setComponentTemplate, getComponentTemplate } from '@glimmer/runtime';
 
 export { default as RootTemplate } from './lib/templates/root';
 export { default as Checkbox } from './lib/components/checkbox';
@@ -396,7 +395,4 @@ export { INVOKE } from './lib/helpers/action';
 export { default as OutletView } from './lib/views/outlet';
 export { OutletState } from './lib/utils/outlet';
 export { setComponentManager } from './lib/utils/managers';
-export { capabilities } from './lib/component-managers/custom';
-export { capabilities as modifierCapabilities } from './lib/modifiers/custom';
-export { helperCapabilities, invokeHelper } from './lib/helpers/custom';
 export { isSerializationFirstNode } from './lib/utils/serialization-first-node-helpers';

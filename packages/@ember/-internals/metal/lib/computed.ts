@@ -3,7 +3,7 @@ import { inspect, toString } from '@ember/-internals/utils';
 import { assert, deprecate, warn } from '@ember/debug';
 import EmberError from '@ember/error';
 import { DEBUG } from '@glimmer/env';
-import { isDestroyed } from '@glimmer/runtime';
+import { isDestroyed } from '@glimmer/destroyable';
 import {
   ALLOW_CYCLES,
   consumeTag,

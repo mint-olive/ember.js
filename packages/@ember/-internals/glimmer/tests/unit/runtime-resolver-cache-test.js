@@ -92,7 +92,7 @@ moduleFor(
           // 1 from this.render, 1 from component-one
           templateCacheMisses: 2,
           // debugRenderTree
-          templateCacheHits: ENV._DEBUG_RENDER_TREE ? 1 : 0,
+          templateCacheHits: ENV._DEBUG_RENDER_TREE ? 2 : 0,
         },
         'test case component and component-one no change'
       );
@@ -105,6 +105,7 @@ moduleFor(
         {
           componentDefinitionCount: 1,
           templateCacheMisses: 1,
+          templateCacheHits: ENV._DEBUG_RENDER_TREE ? 1 : 0,
         },
         'component-two first render'
       );
@@ -160,7 +161,7 @@ moduleFor(
         {
           componentDefinitionCount: 1,
           templateCacheMisses: 2,
-          templateCacheHits: ENV._DEBUG_RENDER_TREE ? 1 : 0,
+          templateCacheHits: ENV._DEBUG_RENDER_TREE ? 2 : 0,
         },
         'test case component and component-one no change'
       );
@@ -224,7 +225,7 @@ moduleFor(
     }
 
     getCacheCounters() {
-      let { componentDefinitionCount, helperDefinitionCount } = this.renderer._runtimeResolver;
+      let { componentDefinitionCount, helperDefinitionCount } = this.renderer._context.constants;
 
       return (this._counters = {
         templateCacheHits: templateCacheCounters.cacheHit || 0,
